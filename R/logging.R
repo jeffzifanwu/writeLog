@@ -40,6 +40,7 @@ logHeader <- function(fileName, version = NULL, desc = NULL, appending = FALSE) 
 #'
 #' @param x List of objects to print.
 #' @return Character vector of lines.
+#' @importFrom utils capture.output
 #' @noRd
 logBody <- function(x) {
   elementNames <- names(x)

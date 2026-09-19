@@ -17,15 +17,15 @@ devtools::install_github("jeffzifanwu/logr")
 library(logr)
 
 writeLog(
-  list(int.orig = summary(1:10), int.hp = mean(1:10)),
-  fileName = "aq_bdr",
+  list(contents1 = summary(1:10), contents2 = mean(1:10)),
+  fileName = "allContents",
   version  = "v1",
-  desc     = "Summary and mean of 1:10",
+  desc     = "All contents",
   logDir   = "log"
 )
 ```
 
-This writes `log/v1_aq_bdr.txt`, with each list element preceded by its
+This writes `log/v1_allContents.txt`, with each list element preceded by its
 name (or a positional heading like `[[2]]` for unnamed elements). Pass
 `append = TRUE` to add to an existing log file instead of overwriting it.
 

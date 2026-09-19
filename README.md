@@ -1,4 +1,4 @@
-# logr
+# writeLog
 
 An R package providing `writeLog()`, a helper that writes the printed
 output of a named list of R objects to a `.txt` file in a log directory,
@@ -14,7 +14,7 @@ devtools::install_github("jeffzifanwu/logr")
 ## Usage
 
 ```r
-library(logr)
+library(writeLog)
 
 writeLog(
   list(contents1 = summary(1:10), contents2 = mean(1:10)),

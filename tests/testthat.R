@@ -1,4 +1,4 @@
 library(testthat)
-library(logr)
+library(writeLog)
 
-test_check("logr")
+test_check("writeLog")

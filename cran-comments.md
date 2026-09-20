@@ -14,5 +14,8 @@
 ## Test environments
 
 * local: Ubuntu 24.04, R 4.3.3
-* (fill in before submission: `devtools::check_win_devel()`,
-  `rhub::rhub_check()` results for at least Windows and macOS)
+* R-hub v2 (GitHub Actions): Linux (ubuntu-latest, R-devel), macOS (arm64,
+  R-devel), Windows (windows-latest, R-devel) -- all 0 errors | 0 warnings |
+  0 notes.
+* win-builder (R-devel, x86_64-w64-mingw32, Windows Server 2022): 0 errors |
+  0 warnings | 1 NOTE ("New submission", expected for a first CRAN release).

@@ -8,7 +8,7 @@ one element after another, each preceded by its list name as a heading.
 
 ```r
 # install.packages("devtools")
-devtools::install_github("jeffzifanwu/logr")
+devtools::install_github("jeffzifanwu/writeLog")
 ```
 
 ## Usage

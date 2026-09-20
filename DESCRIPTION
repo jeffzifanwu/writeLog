@@ -1,4 +1,4 @@
-Package: logr
+Package: writeLog
 Title: Write Printed Output of R Objects to Log Files
 Version: 0.1.0
 Authors@R:

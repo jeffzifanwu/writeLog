@@ -1,3 +1,13 @@
+## Resubmission
+
+This is a resubmission. Changes made in response to the reviewer's comments:
+
+* Removed the single quotes around the function name in the Description field.
+* `writeLog()` no longer has a default `logDir`; callers must supply a
+  directory explicitly. Examples and tests write only to `tempdir()` /
+  temporary directories, so nothing is written to the home filespace or the
+  working directory by default.
+
 ## R CMD check results
 
 0 errors | 0 warnings | 0 notes on a clean checkout.

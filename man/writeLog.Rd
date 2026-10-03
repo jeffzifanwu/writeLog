@@ -3,14 +3,14 @@
 \name{writeLog}
 \alias{writeLog}
 \title{Write the printed output of each element of a named list to a .txt file in
-log/, one after another, each preceded by its list name as a heading.}
+logDir, one after another, each preceded by its list name as a heading.}
 \usage{
 writeLog(
   x,
   fileName = "log",
   version = NULL,
   desc = NULL,
-  logDir = "log",
+  logDir,
   append = FALSE
 )
 }
@@ -26,7 +26,9 @@ and its separator are dropped.}
 
 \item{desc}{Description to print at the top of the log file.}
 
-\item{logDir}{Directory to write the log file to. Created if missing.}
+\item{logDir}{Directory to write the log file to, e.g. tempdir(). Created
+if missing. There is no default, so the package never writes to the
+working directory or home filespace unless you ask it to.}
 
 \item{append}{If TRUE, add to the log file when it already exists rather
 than overwriting it; if it does not exist, a new file is created. If
@@ -37,7 +39,7 @@ x, invisibly (so this can be used inline without breaking a pipe).
 }
 \description{
 Write the printed output of each element of a named list to a .txt file in
-log/, one after another, each preceded by its list name as a heading.
+logDir, one after another, each preceded by its list name as a heading.
 }
 \examples{
 tmp <- tempfile()

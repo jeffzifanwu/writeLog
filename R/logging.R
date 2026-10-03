@@ -7,7 +7,7 @@
 #' @param logDir Directory the log lives in.
 #' @return Single file path string.
 #' @noRd
-logPath <- function(fileName, version = NULL, logDir = "log") {
+logPath <- function(fileName, version = NULL, logDir) {
   prefix <- if (is.null(version)) "" else paste0(version, "_")
   file.path(logDir, paste0(prefix, fileName, ".txt"))
 }
@@ -35,7 +35,7 @@ logHeader <- function(fileName, version = NULL, desc = NULL, appending = FALSE) 
 
 #' Print each element of a list, preceded by its list name as a heading.
 #'
-#' Elements without a name get a positional heading (e.g. "[[2]]") so the log
+#' Elements without a name get a positional heading (e.g. `[[2]]`) so the log
 #' never has an anonymous block.
 #'
 #' @param x List of objects to print.
@@ -54,7 +54,7 @@ logBody <- function(x) {
 }
 
 #' Write the printed output of each element of a named list to a .txt file in
-#' log/, one after another, each preceded by its list name as a heading.
+#' logDir, one after another, each preceded by its list name as a heading.
 #'
 #' @param x Named list of objects to print/log, e.g. list(int.orig =
 #'   summary(int), int.hp = halvorsenPalmquist(int)).
@@ -63,7 +63,9 @@ logBody <- function(x) {
 #'   is written as logDir/version_fileName.txt; if NULL, the version prefix
 #'   and its separator are dropped.
 #' @param desc Description to print at the top of the log file.
-#' @param logDir Directory to write the log file to. Created if missing.
+#' @param logDir Directory to write the log file to, e.g. tempdir(). Created
+#'   if missing. There is no default, so the package never writes to the
+#'   working directory or home filespace unless you ask it to.
 #' @param append If TRUE, add to the log file when it already exists rather
 #'   than overwriting it; if it does not exist, a new file is created. If
 #'   FALSE (the default), any existing file is overwritten.
@@ -78,9 +80,10 @@ writeLog <- function(x,
                       fileName = "log",
                       version = NULL,
                       desc    = NULL,
-                      logDir = "log",
+                      logDir,
                       append = FALSE) {
-  stopifnot(is.list(x), is.character(fileName), length(fileName) == 1)
+  stopifnot(is.list(x), is.character(fileName), length(fileName) == 1,
+            is.character(logDir), length(logDir) == 1)
 
   # Make sure the log directory exists before writing to it
   if (!dir.exists(logDir)) {

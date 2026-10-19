@@ -49,11 +49,3 @@ writeLog(
 ```sh
 Rscript analysis.R v2   # writes log/v2_allContents.txt
 ```
-
-## Development
-
-```r
-devtools::document()
-devtools::test()
-devtools::check()
-```

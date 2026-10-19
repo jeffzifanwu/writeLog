@@ -2,7 +2,7 @@ Package: writeLog
 Title: Write Printed Output of R Objects to Log Files
 Version: 0.1.0
 Authors@R:
-    person(given = "Jeffzifan", family = "Wu", email = "zifan.jeffwu@gmail.com", role = c("aut", "cre"))
+    person(given = "Jeff", family = "Wu", email = "zifan.jeffwu@gmail.com", role = c("aut", "cre"))
 Description: Provides writeLog(), a small helper that writes the printed
     output of a named list of R objects to a text file in a log directory,
     one element after another, each preceded by its list name as a heading.

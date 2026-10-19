@@ -29,6 +29,27 @@ This writes `log/v1_allContents.txt`, with each list element preceded by its
 name (or a positional heading like `[[2]]` for unnamed elements). Pass
 `append = TRUE` to add to an existing log file instead of overwriting it.
 
+### From the command line
+
+To set the version when running a script from the command line, read it from
+the script's arguments:
+
+```r
+# analysis.R
+args <- commandArgs(trailingOnly = TRUE)
+
+writeLog(
+  list(contents1 = summary(1:10)),
+  fileName = "allContents",
+  version  = args[1],
+  logDir   = "log"
+)
+```
+
+```sh
+Rscript analysis.R v2   # writes log/v2_allContents.txt
+```
+
 ## Development
 
 ```r
